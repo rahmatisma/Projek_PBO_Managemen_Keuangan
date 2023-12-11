@@ -7,7 +7,7 @@ class Transaksi extends HistoryPemasukan {
     private String catatanT[];
     private int bulanT[];
     private int tanggalT[];
-    public int q=0;
+    private int q=0;
     private int Maxtanggal = 0;
 
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
