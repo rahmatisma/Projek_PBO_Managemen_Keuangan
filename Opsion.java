@@ -8,9 +8,10 @@ class Opsion {
     public void Pilih() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Transaksi transaksi = new Transaksi();
-        HistoryPemasukan pemasukan = new HistoryPemasukan();
+        // HistoryPemasukan pemasukan = new HistoryPemasukan();
         int pilihan = 6;
-        double saldo = pemasukan.getSaldo();
+        double saldo = transaksi.getSaldo();
+        int i = 0;
 
         do {
             System.out.println("\n<==========Aplikasi Catatan Keuangan==========>\n");
@@ -33,16 +34,18 @@ class Opsion {
                     System.out.println("\nSaldo Anda Adalah : " + saldo + "\n");
                     break;
                 case 2:
-                    saldo = pemasukan.Pemasukan(saldo);
+                    saldo = transaksi.Pemsukan(saldo);
+                    i++;
                     break;
                 case 3:
-                    pemasukan.RiwayatPemasukan();
+                    transaksi.TampilkanRiwayat(i);
+                    transaksi.setSaldo(saldo);
                     break;
                 case 4:
                     saldo = transaksi.Pengeluaran(saldo);
                     break;
                 case 5:
-                    transaksi.RiwayatPengeluaran();
+                    transaksi.TampilkanRiwayat();
                     break;
                 case 6:
                     System.out.println("Terimakasih Telah Menggunakan Aplikasi ini");

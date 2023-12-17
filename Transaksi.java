@@ -2,7 +2,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-class Transaksi extends HistoryPemasukan {
+class HistoryPemasukan extends Pengguna {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+    
+}
+class Transaksi extends Pengguna {
     protected double pengeluaran[];
     private String catatanT[];
     private int bulanT[];
@@ -45,7 +50,7 @@ class Transaksi extends HistoryPemasukan {
                 System.out.println("Harap inputkan data yang benar");
                 q--;
             }
-        } while (bulanT[i] <= 0 || bulanT[i] > 12);
+        } while (bulanT[q] <= 0 || bulanT[q] > 12);
 
         do {
             System.out.println("Masukan tanggal Pengeluaran");
@@ -104,14 +109,29 @@ class Transaksi extends HistoryPemasukan {
         return saldo;
     }
 
-    public void RiwayatPengeluaran() {
+    public void TampilkanRiwayat() {
         int p;
         System.out.println("\n==========Riwayat Pengeluaran==========\n");
-        for (p=0 ; p<=q-1 ; p++) {
+        for (p=0 ; p<q ; p++) {
             System.out.println(p+1 + " Pengeluaran : Rp." + pengeluaran[p]);
             System.out.println("  Catatan : " + catatanT[p]);
             System.out.println("  Bulan : " + bulanT[p]);
             System.out.println("  Tanggal : " + tanggalT[p] + "\n");
+        }
+    }
+
+    public void TampilkanRiwayat(int i) {
+        System.out.println("\n==========Riwayat Pemasukan==========\n");
+
+        if (i == 0) {
+            System.out.println("Tidak ada riwayat pemasukan.");
+        } else {
+            for (int p = 0; p < i; p++) {
+                System.out.println(p + 1 + " Pemasukan : Rp." + super.pemasukan[p]);
+                System.out.println("  Bulan : " + super.bulan[p]);
+                System.out.println("  Tanggal : " + super.tanggal[p]);
+                System.out.println("  Catatan : " + super.catatan[p] + "\n");
+            }
         }
     }
 

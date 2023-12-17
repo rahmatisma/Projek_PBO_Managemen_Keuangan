@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-class Pengguna {
+class Pengguna implements InterfaceOperasiKeuangan{
     protected double saldo = 0;
     protected double pemasukan[];
     protected int tanggal[];
@@ -20,7 +20,8 @@ class Pengguna {
         this.catatan = new String[100];
     }
 
-    public double Pemasukan(double saldo) {
+    @Override
+    public double Pemsukan(double saldo) {
         System.out.println("Masukkan Nominal Pemasukan anda : ");
         try {
             pemasukan[i] = Double.parseDouble(reader.readLine());
@@ -104,7 +105,13 @@ class Pengguna {
         return saldo;
     }
 
+    @Override
     public double getSaldo() {
         return saldo;
+    }
+
+    @Override
+    public void setSaldo(double saldo) {
+        this.saldo=saldo;
     }
 }
